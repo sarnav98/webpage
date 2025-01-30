@@ -326,31 +326,31 @@
     <section class="section contact-section" id="contact">
         <h2>Begin Your Journey</h2>
         <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/jewelaa.official/" class="social-link"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/919477378771" class="social-link"><i class="fab fa-whatsapp"></i></a>
         </div>
     </section>
 
-    <script>
-        // Countdown Timer
-        function updateTimer() {
-            const launchDate = new Date('2024-02-14T00:00:00').getTime();
-            const now = new Date().getTime();
-            const difference = launchDate - now;
+   <script>
+    // Updated Countdown Timer for 2025
+    function updateTimer() {
+        const launchDate = new Date('2025-02-14T00:00:00').getTime(); // Updated year
+        const now = new Date().getTime();
+        const difference = launchDate - now;
 
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
 
-        setInterval(updateTimer, 1000);
-        updateTimer();
+    setInterval(updateTimer, 1000);
+    updateTimer();
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
