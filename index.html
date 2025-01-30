@@ -3,64 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jewelaa | Timeless Elegance</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>Jewelaa | Haute Joaillerie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Luxury Theme */
+        :root {
+            --gold: #C5A47E;
+            --charcoal: #1A1A1A;
+            --ivory: #FFFFF0;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+
+        body {
+            background: var(--charcoal);
+            color: var(--ivory);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            padding: 1.5rem 5%;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--ivory);
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+            animation: fadeInUp 1s 0.2s ease both;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            animation: fadeInUp 1s 0.4s ease both;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* CTA Form */
+        .cta-form {
+            max-width: 500px;
+            margin: 0 auto;
+            animation: fadeInUp 1s 0.6s ease both;
+        }
+
+        .cta-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--gold);
+            color: var(--ivory);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .cta-input:focus {
+            outline: none;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 1rem 2rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            background: var(--ivory);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--ivory);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--gold);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">Jewelaa</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+    <nav class="nav">
+        <a href="#" class="logo">JEWELAA</a>
+        <ul class="nav-links">
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#craftsmanship">Craftsmanship</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <section class="hero">
         <div class="hero-content">
-            <h1>Timeless Elegance</h1>
-            <p>Luxury Jewellery launching on February 14, 2024</p>
+            <h1>Timeless Elegance Reimagined</h1>
+            <p>Experience Haute Joaillerie - Launching Valentine's Day 2024</p>
+            
             <div class="countdown">
-                <div><span id="days"></span>Days</div>
-                <div><span id="hours"></span>Hours</div>
-                <div><span id="minutes"></span>Minutes</div>
-                <div><span id="seconds"></span>Seconds</div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
             </div>
-            <button class="cta-button">Get Notified</button>
+
+            <form class="cta-form">
+                <input type="email" class="cta-input" placeholder="Enter your email for exclusive access">
+                <button type="submit" class="cta-button">Get Early Access</button>
+            </form>
         </div>
     </section>
-    
-    <section id="about" class="about">
-        <h2>About Jewelaa</h2>
-        <p>Crafted with passion, Jewelaa brings timeless elegance to modern luxury.</p>
-    </section>
-    
-    <section id="features" class="features">
-        <div class="feature-card">
-            <h3>Handcrafted</h3>
-            <p>Designed with precision and care by master jewelers.</p>
+
+    <section class="section" id="craftsmanship">
+        <h2>Exceptional Craftsmanship</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-gem feature-icon"></i>
+                <h3>Conflict-Free Diamonds</h3>
+                <p>Ethically sourced gemstones with full traceability</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-hands feature-icon"></i>
+                <h3>Handcrafted Excellence</h3>
+                <p>Meticulous craftsmanship by master jewellers</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-infinity feature-icon"></i>
+                <h3>Timeless Design</h3>
+                <p>Contemporary pieces with eternal elegance</p>
+            </div>
         </div>
-        <div class="feature-card">
-            <h3>Ethically Sourced</h3>
-            <p>Only the finest conflict-free diamonds and sustainable metals.</p>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <h2>Begin Your Journey</h2>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919477378771" class="social-link"><i class="fab fa-whatsapp"></i></a>
         </div>
     </section>
-    
-    <section id="contact" class="contact">
-        <h2>Stay Connected</h2>
-        <p>Drop us a message for inquiries</p>
-        <a href="https://wa.me/919477378771" class="whatsapp-button">Message Us on WhatsApp</a>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 Jewelaa. All Rights Reserved.</p>
-    </footer>
-    
-    <script src="script.js"></script>
+
+    <script>
+        // Countdown Timer
+        function updateTimer() {
+            const launchDate = new Date('2024-02-14T00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = launchDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card').forEach((card) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(30px)';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
