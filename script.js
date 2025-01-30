@@ -1,28 +1,30 @@
-// script.js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Countdown Timer
-    const launchDate = new Date('Feb 14, 2024 00:00:00').getTime();
-
-    function updateTimer() {
+    function updateCountdown() {
+        const launchDate = new Date("February 14, 2024 00:00:00").getTime();
         const now = new Date().getTime();
-        const diff = launchDate - now;
+        const timeRemaining = launchDate - now;
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        if (timeRemaining <= 0) {
+            document.getElementById("timer").innerHTML = "We're Live!";
+            return;
+        }
 
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
     }
 
-    setInterval(updateTimer, 1000);
-    updateTimer();
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    // Form Submission
-    document.getElementById('subscription-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you! You\'ll be the first to know when we launch.');
-        this.reset();
+    // Email Subscription Form
+    document.getElementById("subscription-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("Thank you for subscribing! We'll notify you when we launch.");
     });
 });
