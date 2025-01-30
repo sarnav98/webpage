@@ -3,28 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Jewelaa - Coming Soon</title>
+    <title>Jewelaa | Timeless Jewels Launching Feb 14</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="overlay"></div>
-    <div class="container fade-in">
-        <h1>Jewelaa</h1>
-        <p>Something elegant is coming soon.</p>
-        <div id="countdown">
-            <div id="days">00</div>
-            <div id="hours">00</div>
-            <div id="minutes">00</div>
-            <div id="seconds">00</div>
+    <main>
+        <section class="hero">
+            <div class="content">
+                <h1 class="logo">Jewelaa</h1>
+                <p class="tagline">Crafting Timeless Elegance</p>
+                <div class="countdown">
+                    <p>Launching in</p>
+                    <div id="timer">
+                        <div><span id="days"></span>Days</div>
+                        <div><span id="hours"></span>Hours</div>
+                        <div><span id="minutes"></span>Minutes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('https://picsum.photos/600/400?image=104')"></div>
+                <h2>Handcrafted Excellence</h2>
+                <p>Each piece meticulously crafted by master jewelers</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-image" style="background-image: url('https://picsum.photos/600/400?image=105')"></div>
+                <h2>Ethically Sourced</h2>
+                <p>Conflict-free diamonds and recycled precious metals</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Be the First to Access Our Collection</h2>
+            <form id="subscription-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Get Early Access</button>
+            </form>
+            <p class="small-text">Launching February 14, 2024</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="logo">Jewelaa</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+            </div>
         </div>
-        <form class="subscribe-form" onsubmit="sendEmail(event)">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit">Notify Me</button>
-        </form>
-        <div class="social-icons">
-            <!-- Add social media icons here -->
-        </div>
-    </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
