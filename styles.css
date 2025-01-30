@@ -1,95 +1,161 @@
+/* style.css */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #e8e0d7;
+    --accent-color: #a8927a;
+    --dark-color: #2d2d2d;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: url('background.jpg') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    position: relative;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    overflow-x: hidden;
 }
 
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-}
-
-.container {
-    text-align: center;
-    z-index: 2;
-    position: relative;
-    max-width: 600px;
-    padding: 2rem;
-}
-
-h1 {
-    font-size: 3.5rem;
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
     font-weight: 600;
 }
 
-p {
-    font-size: 1.2rem;
-    font-weight: 300;
-}
-
-.subscribe-form {
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                url('https://picsum.photos/1920/1280?image=106') center/cover;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 1rem;
 }
 
-.subscribe-form input {
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
-    width: 250px;
-    font-size: 1rem;
+.tagline {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin: 1rem 0 2rem;
 }
 
-.subscribe-form button {
-    padding: 0.8rem 1.2rem;
-    background-color: #ff7f50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+.countdown {
+    margin-top: 3rem;
 }
 
-.subscribe-form button:hover {
-    background-color: #ff6347;
-    transform: scale(1.05);
-}
-
-#countdown {
+#timer {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    font-size: 1.5rem;
+    gap: 2rem;
+    margin: 1.5rem 0;
 }
 
-#countdown div {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 15px;
-    border-radius: 8px;
+#timer div {
+    font-size: 1.1rem;
 }
 
-.fade-in {
-   opacity: 0; 
-   animation: fadeIn 1.5s ease-in-out forwards; 
+#timer span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
 }
 
-@keyframes fadeIn {
-   from { opacity: 0; transform: translateY(20px); }
-   to { opacity: 1; transform: translateY(0); }
+.features {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.feature-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.5rem;
+}
+
+.cta {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: var(--primary-color);
+}
+
+#subscription-form {
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--dark-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+    }
+
+    #timer {
+        gap: 1rem;
+    }
+
+    #timer span {
+        font-size: 2rem;
+    }
+
+    .feature-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    #timer {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 }
